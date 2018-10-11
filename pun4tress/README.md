@@ -2,6 +2,15 @@
 
 > A Vue.js project
 
+1. npm install
+2. npm run build
+3. npm run dev
+
+deploy 
+
+1. cd ..
+2. firebase deploy
+
 ## Build Setup
 
 ``` bash
