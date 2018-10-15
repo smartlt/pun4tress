@@ -8,22 +8,28 @@
       <div style="padding: 50px 20px;">
         <h1>{{ title }}</h1>
         <h2>{{ description }}</h2>
+        <FacebookLogin />
         <img src="../assets/images/radar.jpg" width="200">
       </div>
     </div>
-    
   </div>
 </template>
 
 <script>
+
+import FacebookLogin from './FacebookLogin'
 export default {
   name: 'HelloWorld',
+  components: {
+    FacebookLogin
+  },
   data () {
     return {
       title: 'Pun4Tress',
-      description: '18 BIRTHDAY PROJECT'
+      description: '18 BIRTHDAY PROJECT',
+      currentUser: null
     }
-  }
+  },
 }
 </script>
 

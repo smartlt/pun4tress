@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <HelloWorld/>
+    <!-- <FacebookLogin/> -->
+
   </div>
 </template>
 
@@ -10,8 +12,9 @@ import HelloWorld from './components/HelloWorld'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
+
 }
 </script>
 
