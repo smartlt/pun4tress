@@ -1,12 +1,8 @@
 <template>
   <div class="login">
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-     Your app may use that space for branding, controls and other customizations.-->
     <h1 v-if="!user">Facebook Login</h1>
     <h1 v-if="user">Welcome  {{user.displayName}}</h1>
-    <button v-if="!user" class="button blue" @click="loginFacebook">Facebook</button>
-    <!-- <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div> -->
+    <button v-if="!user" class="btn btn-facebook" @click="loginFacebook">Facebook</button>
   </div>
 </template>
 
@@ -23,34 +19,6 @@ export default {
     }
   },
   mounted(){
-    // var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // var uiConfig = {
-    //   callbacks: {
-    //     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-    //       // User successfully signed in.
-    //       // Return type determines whether we continue the redirect automatically
-    //       // or whether we leave that to developer to handle.
-    //       console.log(authResult);
-    //       return true;
-    //     },
-    //     uiShown: function() {
-    //       // The widget is rendered.
-    //       // Hide the loader.
-    //       console.log('shown');
-    //       document.getElementById('loader').style.display = 'none';
-    //     }
-    //   },
-    //   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    //   signInFlow: 'popup',
-    //   signInOptions: [
-    //     // Leave the lines as is for the providers you want to offer your users.
-    //     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //   ],
-    // };
-    // // The start method will wait until the DOM is loaded.
-    // ui.start('#firebaseui-auth-container', uiConfig);
-
-    
 
   },
   methods: {
@@ -82,8 +50,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .button{
-    background-color: blue;
-  }
+  /* Style all font awesome icons */
+.btn-facebook {
+	  background: #3B5998;
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #263961; 
+	}
+	.btn-facebook:link, .btn-facebook:visited {
+	  color: #fff;
+	}
+	.btn-facebook:active, .btn-facebook:hover {
+	  background: #263961;
+	  color: #fff;
+	}
+
 
 </style>

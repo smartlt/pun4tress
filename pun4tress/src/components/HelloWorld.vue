@@ -9,7 +9,7 @@
         <h1>{{ title }}</h1>
         <h2>{{ description }}</h2>
         <FacebookLogin />
-        <img src="../assets/images/radar.jpg" width="200">
+        <radarClick />
       </div>
     </div>
   </div>
@@ -18,16 +18,18 @@
 <script>
 
 import FacebookLogin from './FacebookLogin'
+import radarClick from './radarClick'
+
 export default {
   name: 'HelloWorld',
   components: {
-    FacebookLogin
+    FacebookLogin,
+    radarClick
   },
   data () {
     return {
       title: 'Pun4Tress',
       description: '18 BIRTHDAY PROJECT',
-      currentUser: null
     }
   },
 }
