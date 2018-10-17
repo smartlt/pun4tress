@@ -8,8 +8,8 @@
       <div style="padding: 50px 20px;">
         <h1>{{ title }}</h1>
         <h2>{{ description }}</h2>
-        <FacebookLogin />
-        <radarClick />
+        <FacebookLogin v-on:updateuser="updateUser" />
+        <radarClick v-if="user" />
       </div>
     </div>
   </div>
@@ -30,8 +30,17 @@ export default {
     return {
       title: 'Pun4Tress',
       description: '18 BIRTHDAY PROJECT',
+      user: null
     }
   },
+  mounted(){
+    
+  },
+  methods:{
+    updateUser(user){
+      this.user = user;
+    }
+  }
 }
 </script>
 

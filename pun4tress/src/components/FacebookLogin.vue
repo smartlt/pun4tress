@@ -10,27 +10,59 @@
 
 export default {
   name: 'login',
+  props: ['value'],
   data () {
     return {
       title: 'Pun4Tress',
       description: '18 BIRTHDAY PROJECT',
       provider: new firebase.auth.FacebookAuthProvider(),
-      user: firebase.auth().currentUser
+      user: null
+    }
+  },
+  computed:{
+    interface: {
+      get(){
+        return this.value;
+      },
+      set(val){
+        this.$emit('value', this.user);
+      }
     }
   },
   mounted(){
+    let app = this;
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          console.log('login', user);
+          // User is signed in.
+          app.user = user;
+          app.$emit('updateuser', user);
+          app.updateUser();
+        } else {
+          // No user is signed in.
 
+        }
+    });
   },
   methods: {
     loginFacebook(){
       var app = this;
-      firebase.auth().signInWithPopup(this.provider).then((result) => {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      firebase.auth().signInWithPopup(app.provider).then((result) => {
+        // app gives you a Facebook Access Token. You can use it to access the Facebook API.
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log(user)
-        this.user = user;
+        app.user = user;
+        app.$emit('updateuser', user);
+
+        if(result.additionalUserInfo.isNewUser){
+          console.log('new');
+          app.createUser();
+        }else{
+          console.log('update');
+          app.updateUser();
+        }
+
         // ...
       }).catch(function(error) {
         console.log(error);
@@ -43,6 +75,19 @@ export default {
         var credential = error.credential;
         // ...
       });
+    },
+    updateUser(){
+      // Write the new post's data simultaneously in the posts list and the user's post list.
+      let updates = {};
+      let uid = this.user.uid;
+      updates['/users/' + uid] = this.user;
+      return firebase.database().ref().update(updates);
+    },
+    createUser(){
+      // Write the new post's data simultaneously in the posts list and the user's post list.
+      let uid = this.user.uid;
+      return firebase.database().ref('users/' + uid).set(this.user);
+
     }
   }
 }
