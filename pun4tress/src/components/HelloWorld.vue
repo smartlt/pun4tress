@@ -1,8 +1,8 @@
 <template>
   <div class="hello backgroundImage">
     <nav class="fixedbar">
-      <a href="https://www.facebook.com/pun4tress"><img src="../assets/button/FB.jpg" width="40"></a>
-      <a href="https://twitter.com/PUN4TRESS"><img src="../assets/button/twitter.jpg" width="40"></a>
+      <a href="https://www.facebook.com/pun4tress"><img src="../assets/images/Facebook.svg" width="80"></a>
+      <a href="https://twitter.com/PUN4TRESS"><img src="../assets/images/twitter.svg" width="80"></a>
     </nav>
     <div class="content">
       <div style="padding: 50px 20px;">
@@ -45,10 +45,14 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-  color: wheat;
+<style>
+h1{
+  font-family: 'Caveat', cursive;
+  color: gold;
+}
+h2 {
+  font-family: 'Caveat', cursive;
+  color: gold;
 }
 ul {
   list-style-type: none;

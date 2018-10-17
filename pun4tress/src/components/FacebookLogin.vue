@@ -1,7 +1,8 @@
 <template>
   <div class="login">
     <h1 v-if="!user">Facebook Login</h1>
-    <h1 v-if="user">Welcome  {{user.displayName}}</h1>
+    <h2 v-if="user">Welcome</h2>  
+     <h1> {{user.displayName}}</h1>
     <button v-if="!user" class="btn btn-facebook" @click="loginFacebook">Facebook</button>
   </div>
 </template>
