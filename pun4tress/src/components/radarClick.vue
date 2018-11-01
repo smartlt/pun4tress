@@ -1,7 +1,10 @@
 <template>
   <div class="radar">
-      <h2>Count: {{count}}</h2>
-    <img src="../assets/images/click.svg" @click="radarClick" width="200">
+      <div class="count">
+        <img src="../assets/images/space.png" @click="radarClick" width="200">
+        <h2 class="count-text">{{count}}</h2>
+      </div>
+    <img class="radar-image" src="../assets/images/new.png" @click="radarClick" width="200">
   </div>
 </template>
 
@@ -39,6 +42,20 @@ export default {
   /* Style all font awesome icons */
     .radar{
         padding: 30px 0
+    }
+    .count{
+        position: relative;
+        text-align: center;
+        
+    }
+    .count-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .radar-image{
+        padding-top: 15px;
     }
 
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="login">
-    <h1 v-if="!user">Facebook Login</h1>
     <h2 v-if="user">Welcome</h2>  
-     <h1> {{user.displayName}}</h1>
+    <h1 v-if="user">{{user.displayName}}</h1>
+    <h1 v-if="!user">Facebook Login</h1>
     <button v-if="!user" class="btn btn-facebook" @click="loginFacebook">Facebook</button>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
           // User is signed in.
           app.user = user;
           app.$emit('updateuser', user);
-          app.updateUser();
+          // app.updateUser();
         } else {
           // No user is signed in.
 
@@ -54,7 +54,6 @@ export default {
         // The signed-in user info.
         var user = result.user;
         app.user = user;
-        app.$emit('updateuser', user);
 
         if(result.additionalUserInfo.isNewUser){
           console.log('new');
@@ -81,13 +80,14 @@ export default {
       // Write the new post's data simultaneously in the posts list and the user's post list.
       let updates = {};
       let uid = this.user.uid;
-      updates['/users/' + uid] = this.user;
+      updates['/users/'] = this.user;
       return firebase.database().ref().update(updates);
     },
     createUser(){
       // Write the new post's data simultaneously in the posts list and the user's post list.
       let uid = this.user.uid;
-      return firebase.database().ref('users/' + uid).set(this.user);
+      console.log(this.user, uid);
+      return firebase.database().ref('users/').set(this.user);
 
     }
   }

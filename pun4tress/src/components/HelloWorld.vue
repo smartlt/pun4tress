@@ -1,15 +1,16 @@
 <template>
   <div class="hello backgroundImage">
     <nav class="fixedbar">
-      <a href="https://www.facebook.com/pun4tress"><img src="../assets/images/Facebook.svg" width="80"></a>
-      <a href="https://twitter.com/PUN4TRESS"><img src="../assets/images/twitter.svg" width="80"></a>
+      <a href="https://www.facebook.com/pun4tress"><img src="../assets/images/Facebook.svg" width="60"></a>
+      <a href="https://twitter.com/PUN4TRESS"><img src="../assets/images/twitter.svg" width="60"></a>
     </nav>
     <div class="content">
       <div style="padding: 50px 20px;">
         <h1>{{ title }}</h1>
         <h2>{{ description }}</h2>
-        <FacebookLogin v-on:updateuser="updateUser" />
+        <FacebookLogin />
         <radarClick v-if="user" />
+        <message :user="user" />
       </div>
     </div>
   </div>
@@ -19,12 +20,14 @@
 
 import FacebookLogin from './FacebookLogin'
 import radarClick from './radarClick'
+import Message from './Message'
 
 export default {
   name: 'HelloWorld',
   components: {
     FacebookLogin,
-    radarClick
+    radarClick,
+    Message
   },
   data () {
     return {
@@ -66,10 +69,9 @@ a {
   color: #42b983;
 }
 .backgroundImage{
-  background-image: url("../assets/images/background.jpg");
+    background-image: url("../assets/images/bg.svg");
       /* Full height */
-    height: 100%; 
-
+    min-height: 100vh; 
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
