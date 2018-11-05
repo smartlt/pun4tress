@@ -6,8 +6,9 @@
     </nav>
     <div class="content">
       <div style="padding: 50px 20px;">
-        <h1>{{ title }}</h1>
-        <h2>{{ description }}</h2>
+        <img src="../assets/images/web.png" class="title-image">
+        <!-- <h1>{{ title }}</h1>
+        <h2>{{ description }}</h2> -->
         <FacebookLogin />
         <radarClick v-if="user" />
         <message :user="user" />
@@ -51,11 +52,11 @@ export default {
 <style>
 h1{
   font-family: 'Caveat', cursive;
-  color: gold;
+  color: #009966;
 }
 h2 {
   font-family: 'Caveat', cursive;
-  color: gold;
+  color: #009966;
 }
 ul {
   list-style-type: none;
@@ -88,5 +89,8 @@ a {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+.title-image{
+  width: 70%;
 }
 </style>

@@ -1,14 +1,22 @@
 <template>
-  <div class="radar">
-      <div class="count">
-        <p :key="key" v-for="(message, key) in messages"><b>{{key}}</b> <br> {{message}}</p>
-      </div>
-      <div>
-          <div class="custom">
-          <input class="input-box" v-model="message">
-          </div>
-          <img @click="sendMessage" class="radar-image" src="../assets/images/Click1.svg" width="100">
-      </div>
+  <div class="radar container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="message-board">
+                    <p :key="key" v-for="(message, key) in messages"><b>{{key}}</b> <br> {{message}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div> 
+            <div class="col-10">
+                <div class="custom">
+                    <input class="input-box" v-model="message">
+                    <img @click="sendMessage" class="radar-image" src="../assets/images/Click1.svg" width="100">
+                </div>
+            </div>
+        </div>
   </div>
 </template>
 
@@ -64,10 +72,47 @@ export default {
     .radar{
         padding: 30px 0
     }
-    .count{
-        position: relative;
-        text-align: center;
+    .message-board{
+        background-color: #009966;
+        padding: 50px;
+        border-radius: 50px;
+        border: 5px solid black; 
+        box-shadow:
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white;
+
+        background: linear-gradient(90deg, rgba(255,255,255,0.3) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 0), #009966;
+        background-size:50px auto;
+
+        height: 450px;
+        overflow: auto;
         
+    }
+
+    .message-board::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+    .message-board::-webkit-scrollbar
+    {
+        height: 50px;
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+
+    .message-board::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
     }
     .count-text{
         position: absolute;
@@ -75,35 +120,38 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .radar-image{
-        padding-top: 15px;
-    }
     .input-box{
-          background-image:url('../assets/images/space.png');
-            /* background-repeat:no-repeat;
-            padding-left:20px; */
+        background-color: #009966;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        height: 6rem;
+        border: 5px solid black; 
+        box-shadow:
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white,
+            inset 0 0 0 5px white;
+        padding: 30px;
+        width: 100%;
     }
 
+
+
     div.custom {
-        background:url('../assets/images/space.svg') no-repeat center center;
         padding:8px 5px 4px 5px;
         min-height: 120px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: left;
 
     }
     div.custom input {
-        background-color: #fff;
-        border:none;
         font-size: 30px;
-        background: none;
-    }
-    div.custom input:hover {
-        border:none;
-    }
-    div.custom input:focus {
-        border:none;
+
     }
 
 </style>
