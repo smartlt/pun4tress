@@ -4,7 +4,8 @@
     <div class="row">
       <div class="col-12">
         <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-        <h2 class="header">PUN4TRESS: PROJECT</h2>
+        <!-- <h2 class="header">PUN4TRESS: PROJECT</h2> -->
+        <img style="width: 90%; height: 75px;" src="../assets/pun4tress.png">
       </div>
     </div>
     <div class="row press-start">
@@ -20,7 +21,7 @@
       </div>
       <div class="col-12">
         <router-link to="/justpun">
-          <img class="justpun" src="../assets/justpun.png">
+          <img class="justpun-text" src="../assets/justpun.png">
         </router-link>
       </div>
     </div>
@@ -56,16 +57,16 @@ export default {
   min-height: 76px;
 }
 .press-start{
-  padding-top: 33vh;
+  padding-top: 32vh;
 }
 .press-start img{
   width: 275px;
 }
 .link{
-  padding-top: 30px;
+  padding-top: 25px;
 }
-.link img.justpun{
-  padding-top: 40px;
+.link img.justpun-text{
+  padding-top: 30px;
   width: 150px;
   cursor: pointer;
 }

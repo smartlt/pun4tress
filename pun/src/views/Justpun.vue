@@ -1,9 +1,9 @@
 <template>
-    <div class="justpun">
-        <div class="container">
+    <div class="container">
+        <div class="justpun">
             <img class="header-img" src="../assets/web2.png">
             <div class="moniter row">
-                <div class="col-10 col-md-9 col-xl-8 mx-auto">
+                <div class="col-10 col-md-9 col-xl-8">
                     <div class="moniter-text">
                         <p :key="index" v-for="(text, index) in texts">{{text}}</p>
                     </div>
@@ -56,12 +56,12 @@ export default {
 }
 
 .header-img{
-    width: 80%;
+    width: 90%;
 }
 
 
 .moniter{
-    min-height: 80vh;
+    min-height: 90vh;
     justify-content: center;
     align-items: center;
     background-image: url('../assets/monitor.png');
@@ -72,10 +72,11 @@ export default {
 }
 
 .moniter-text{
-    max-height: 45vh;
+    max-height: 50vh;
     overflow-y: auto;
     font-weight: 600;
     font-size: medium;
+    padding: 20px;
 }
 
 .moniter-text::-webkit-scrollbar-track{
@@ -106,28 +107,40 @@ export default {
         width: 100%;
     }
     .moniter{
-        min-height: 70vh;
+        min-height: 75vh;
     }
     .moniter-text{
-        max-height: 40vh;
+        max-height: 35vh;
     }
 
 }
-
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 991px) {
     .header-img{
         width: 100%;
     }
     .moniter{
-        min-height: 60vh;
+        min-height: 70vh;
     }
     .moniter-text{
-        max-height: 30vh;
+        max-height: 35vh;
     }
 
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
+    .header-img{
+        width: 100%;
+    }
+    .moniter{
+        min-height: 70vh;
+    }
+    .moniter-text{
+        max-height: 35vh;
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
     .header-img{
         width: 100%;
     }
@@ -137,6 +150,5 @@ export default {
     .moniter-text{
         max-height: 25vh;
     }
-
 }
 </style>
